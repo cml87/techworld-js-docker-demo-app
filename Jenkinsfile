@@ -1,18 +1,30 @@
 pipeline {
 
+    // CODE_CHANGES = gitChangesQ();   // this will be a groovy script that will determine whether there were code changes or not 
+                                       // in the code base we are building with this pipeline. It will return a boolean. We'll use 
+                                       // this variable later, in the condition for the stages.  
+    
     agent any
     
     stages {
     
         stage("build") {
-        
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' /*&& CODE_CHANGES == true*/
+                }
+            }
             steps {
                 echo 'building the application...'
             }
         }
         
         stage("test") {
-        
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' || BRANCH_NAME == 'master'
+                }
+            }
             steps {
                 echo 'testing the application...'
             }
