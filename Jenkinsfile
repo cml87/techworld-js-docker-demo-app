@@ -9,7 +9,7 @@ pipeline {
     // custom environment variables for this pipeline
     environment {
         NEW_VERSION = '1.3.0'
-        SERVER_CREDENTIALS = credentials('my-server-credentials')
+        // SERVER_CREDENTIALS = credentials('my-server-credentials')
     }
 
     stages {
@@ -39,10 +39,19 @@ pipeline {
         }
         
         stage("deploy") {
-        
             steps {
+                scripts {
+                    withCredentials([
+                        userNamePassword( credentialsId: 'my-server-credentials', userNameVariable: 'username', passwordVariable: 'password')
+                    ])
+                    {
+                        pritn 'using credentials: '
+                        print 'username=' + username + 'password=' +password
+                        print 'username.collect { it }='+username.collect { it }
+                        print 'password.collect { it }='+password.collect { it }
+                    }
+                }
                 echo 'deplying the application...'
-                echo "using credentials ${SERVER_CREDENTIALS}"
 
             }  
         }
