@@ -22,7 +22,15 @@ pipeline {
         
             steps {
                 echo 'deplying the application...'
-            }
+            }  
         }
-    }   
+    } 
+
+    post {
+        success{
+            echo 'The pipeline was successfully run !'
+        }
+
+    }
+
 }
