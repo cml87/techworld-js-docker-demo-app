@@ -40,7 +40,7 @@ pipeline {
         
         stage("deploy") {
             steps {
-                scripts {
+                script {
                     withCredentials([
                         userNamePassword( credentialsId: 'my-server-credentials', userNameVariable: 'username', passwordVariable: 'password')
                     ])
