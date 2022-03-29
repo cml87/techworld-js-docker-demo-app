@@ -45,7 +45,7 @@ pipeline {
                         usernamePassword( credentialsId: 'my-server-credentials', usernameVariable: 'username', passwordVariable: 'password')
                     ])
                     {
-                        pritn 'using credentials: '
+                        print 'using credentials: '
                         print 'username=' + username + 'password=' +password
                         print 'username.collect { it }='+username.collect { it }
                         print 'password.collect { it }='+password.collect { it }
