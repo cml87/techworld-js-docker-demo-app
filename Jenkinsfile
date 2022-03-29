@@ -7,7 +7,12 @@ pipeline {
     agent any
     
     stages {
-    
+
+        // custom environment variables for this pipeline
+        environment {
+            NEW_VERSION = '1.3.0'
+        }
+
         stage("build") {
             when {
                 expression {
@@ -28,6 +33,7 @@ pipeline {
             }
             steps {
                 echo 'testing the application...'
+                echo "testing version ${NEW_VERSION}"
             }
         }
         
