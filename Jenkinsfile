@@ -5,13 +5,13 @@ pipeline {
                                        // this variable later, in the condition for the stages.  
     
     agent any
-    
-    stages {
 
-        // custom environment variables for this pipeline
-        environment {
-            NEW_VERSION = '1.3.0'
-        }
+    // custom environment variables for this pipeline
+    environment {
+        NEW_VERSION = '1.3.0'
+    }
+
+    stages {
 
         stage("build") {
             when {
