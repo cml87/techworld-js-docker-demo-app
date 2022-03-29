@@ -42,7 +42,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([
-                        userNamePassword( credentialsId: 'my-server-credentials', userNameVariable: 'username', passwordVariable: 'password')
+                        usernamePassword( credentialsId: 'my-server-credentials', usernameVariable: 'username', passwordVariable: 'password')
                     ])
                     {
                         pritn 'using credentials: '
