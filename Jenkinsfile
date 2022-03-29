@@ -9,6 +9,7 @@ pipeline {
     // custom environment variables for this pipeline
     environment {
         NEW_VERSION = '1.3.0'
+        SERVER_CREDENTIALS = credentials('my-server-credentials')
     }
 
     stages {
@@ -41,6 +42,8 @@ pipeline {
         
             steps {
                 echo 'deplying the application...'
+                echo "using credentials ${SERVER_CREDENTIALS}"
+
             }  
         }
     } 
@@ -51,5 +54,4 @@ pipeline {
         }
 
     }
-
 }
