@@ -16,6 +16,7 @@ pipeline {
             }
             steps {
                 echo 'building the application...'
+                echo "building commit ${GIT_COMMIT}"
             }
         }
         
