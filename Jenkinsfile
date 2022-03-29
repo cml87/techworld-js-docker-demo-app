@@ -46,7 +46,7 @@ pipeline {
                     ])
                     {
                         print 'using credentials: '
-                        print 'username=' + username + 'password=' +password
+                        print 'username=' + username + ', password=' +password
                         print 'username.collect { it }='+username.collect { it }
                         print 'password.collect { it }='+password.collect { it }
                     }
